@@ -13,7 +13,7 @@ public class Main {
         handler = new TesztversenyHandler();
 
         System.out.println("1. feladat: Az adatok beolvasása");
-        handler.readFile("valaszok.txt");
+        handler.readFile("sourceFiles/valaszok.txt");
         System.out.println();
 
         debugger();
