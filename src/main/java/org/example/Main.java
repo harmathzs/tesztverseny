@@ -16,6 +16,9 @@ public class Main {
         handler.readFile("sourceFiles/valaszok.txt");
         System.out.println();
 
+        System.out.println("2. feladat: A vetélkedőn "+handler.getValaszokDb()+" versenyző indult. ");
+        System.out.println();
+
         debugger();
     }
 }
