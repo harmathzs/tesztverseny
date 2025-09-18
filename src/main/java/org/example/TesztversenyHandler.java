@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class TesztversenyHandler {
     private String helyes;
     private String[][] valaszok;
+    private int valaszokDb;
 
     public String getHelyes() {
         return helyes;
@@ -26,19 +27,37 @@ public class TesztversenyHandler {
         this.valaszok = valaszok;
     }
 
+    public int getValaszokDb() {
+        return valaszokDb;
+    }
+
+    public void setValaszokDb(int valaszokDb) {
+        this.valaszokDb = valaszokDb;
+    }
+
     private void debugger() {
         int i=0;
+    }
+
+    public TesztversenyHandler() {
+        valaszok = new String[500][];
     }
 
     public TesztversenyHandler readFile(String filename) throws FileNotFoundException {
         // implement readFile with BufferedReader
         File file = new File(filename);
         Scanner scanner = new Scanner(file);
+
+        setHelyes(scanner.nextLine()); // 1. sorban a helyes válaszok
+        setValaszokDb(0);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            debugger();
-        }
+            String[] split = line.split(" ");
+            valaszok[getValaszokDb()] = split;
 
+            setValaszokDb(getValaszokDb()+1);
+        }
+        debugger();
 
         return this;
     }
